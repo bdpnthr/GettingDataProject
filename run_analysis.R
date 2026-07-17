@@ -35,9 +35,14 @@ names(tidy_data) <- gsub("Gyro", "Gyroscope", names(tidy_data))
 names(tidy_data) <- gsub("Mag", "Magnitude", names(tidy_data))
 names(tidy_data) <- gsub("BodyBody", "Body", names(tidy_data))
 
-# Final tidy dataset
+# Final tidy dataset (Part 1)
 tidy_data <- tidy_data %>%
   rename(activity = code)
 
-# View the first few rows
-head(tidy_data)
+# Create second tidy dataset with averages (Part 2)
+FinalData <- tidy_data %>%
+  group_by(subject, activity) %>%
+  summarise_all(mean)
+
+# Export the dataset to a text file
+write.table(FinalData, "FinalData.txt", row.name = FALSE)
