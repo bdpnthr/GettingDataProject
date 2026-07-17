@@ -1,0 +1,10 @@
+# Create independent second tidy dataset with averages
+FinalData <- tidy_data %>%
+  group_by(subject, activity) %>%
+  summarise_all(mean)
+
+# Write the dataset to a text file
+write.table(FinalData, "FinalData.txt", row.name = FALSE)
+
+# Quick check: view first few rows
+head(FinalData)
