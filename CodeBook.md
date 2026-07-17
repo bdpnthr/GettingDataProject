@@ -1,26 +1,23 @@
-## 📑 CodeBook.md
-
-```markdown
 # CodeBook
 
 ## Data Source
-Human Activity Recognition Using Smartphones Dataset
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+Human Activity Recognition Using Smartphones Dataset  
+[UCI HAR Dataset](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ## Variables
-- **subject**: ID of the subject (1–30).
-- **activity**: Activity performed (e.g., WALKING, SITTING).
-- **measurements**: Mean and standard deviation values from accelerometer and gyroscope signals.
+- **subject**: Identifier of the subject (ranges from 1 to 30).
+- **activity**: Descriptive activity name (e.g., WALKING, SITTING, LAYING).
+- **measurements**: Selected features representing mean and standard deviation values from accelerometer and gyroscope signals.
 
 ## Transformations
-1. Training and test sets merged.
-2. Extracted only mean and standard deviation features.
-3. Replaced activity codes with descriptive names.
-4. Cleaned variable names:
+1. **Merged datasets**: Combined training and test sets into one unified dataset.
+2. **Feature extraction**: Retained only measurements on the mean and standard deviation for each signal.
+3. **Activity labeling**: Replaced numeric activity codes with descriptive activity names.
+4. **Variable renaming**: Cleaned and standardized variable names:
    - `Acc` → `Accelerometer`
    - `Gyro` → `Gyroscope`
    - `Mag` → `Magnitude`
    - Prefix `t` → `Time`
    - Prefix `f` → `Frequency`
    - Removed duplicates (`BodyBody` → `Body`)
-5. Created tidy dataset with averages grouped by subject and activity.
+5. **Tidy dataset creation**: Produced a final dataset with averages of each variable grouped by subject and activity
